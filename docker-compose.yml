@@ -1,0 +1,17 @@
+services:
+  ceno-client:
+    image: equalitie/ceno-client
+    container_name: ceno-client
+    restart: unless-stopped
+    network_mode: "host"
+    environment:
+      - AUTO_UPDATE=true # 根据需要配置自动更新
+    volumes:
+      - ceno_data:/var/opt/ouinet
+    ports:
+      - "127.0.0.1:8077:8077"
+      - "127.0.0.1:8078:8078"
+      - "28729:28729/udp"
+
+volumes:
+  ceno_data:
