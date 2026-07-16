@@ -4,6 +4,6 @@ FROM equalitie/ouinet:${OUINET_VERSION}
 COPY ouinet-client.conf metrics-cert.pem ssl-inj-cert.pem \
      repo-templates/client/
 
-VOLUME /var/opt/ouinet
+EXPOSE 8077/tcp 8078/tcp 28729/udp
 
 ENTRYPOINT ["/opt/ouinet/ouinet", "client"]
